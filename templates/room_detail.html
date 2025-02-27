@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>{{ room.name }}</h1>
+        <p>{{ room.location.city }}, {{ room.location.county }}</p>
+    </header>
+
+    <h2>Details</h2>
+    <p>Price: £{{ room.price_per_month_gbp }}</p>
+    <p>Availability: {{ room.availability_date }}</p>
+    <p>Spoken Languages: {{ room.spoken_languages | join(', ') }}</p>
+
+    <h3>Amenities</h3>
+    <ul>
+        {% for amenity in room.details.amenities %}
+            <li>{{ amenity }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Weather Forecast</h3>
+    <p>Temperature: {{ room.weather.temperature }}°C</p>
+    <p>Condition: {{ room.weather.weather_condition }}</p>
+    <p>Wind Speed: {{ room.weather.wind_speed }} km/h</p>
+    <p>Wind Direction: {{ room.weather.wind_direction }}</p>
+
+    <a href="/">Back to Room Search</a>
+</body>
+</html>

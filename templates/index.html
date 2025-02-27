@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Dorm - Find Your Room</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Global Dorm - Room Search</h1>
+    </header>
+        <!-- Search Form -->
+    <form id="search-form">
+        <input type="text" id="city" placeholder="City" />
+        <input type="number" id="max_price" placeholder="Max Price (GBP)" />
+        <input type="text" id="language" placeholder="Language" />
+        <button type="submit">Search</button>
+    </form>
+        <!-- Search Form -->
+
+  
+
+        <!-- Apply For Room Form -->
+
+    <div id="apply-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Apply for Room</h2>
+            <form id="apply-form">
+                <input type="hidden" id="modal-room-id" />
+                <input type="text" id="user-name" placeholder="Your Name" required />
+                <input type="email" id="user-email" placeholder="Your Email" required />
+                <textarea id="user-message" placeholder="Room Name" required></textarea>
+                <input type="text" id="room-location" placeholder="Room Location" required />
+                <button type="submit">Submit Application</button>
+            </form>
+        </div>
+    </div>
+    <!-- Apply For Room Form -->
+
+    <div id="room-list">
+        <!-- Rooms will be listed here dynamically -->
+    </div>
+
+    
+    <!-- Application History Section -->
+    <button id="history-btn">View Application History</button>
+    <div id="application-history" style="display: none;">
+        <h3>Application History</h3>
+
+        <ul id="application-list">
+            <!-- Application history will be dynamically populated here -->
+        </ul>
+    </div>
+    <!-- Application History Section -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
